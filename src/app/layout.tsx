@@ -1,7 +1,8 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/atoms/theme/ThemeProvider'
+import { ThemeProvider } from '@/context/ThemeProvider'
+import NavMenu from '@/components/fragments/NavMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          {children}
+          <NavMenu />
+          <main className='px-5 md:px-20'>
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
